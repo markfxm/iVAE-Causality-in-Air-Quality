@@ -1,1 +1,42 @@
 https://www.analyticsvidhya.com/blog/2018/09/multivariate-time-series-guide-forecasting-modeling-python-codes/
+
+note:
+1. VAE
+2. ICA + VAE
+3. iVAE
+
+causality between 'CO' and 'T'
+
+Why we need reconstruct the data?
+    Encoder: Maps the input data to a latent space (compressed representation).
+    Decoder: Reconstructs the input data from this latent space.
+    
+Reconstruction allows you to check whether the compressed representation (latent space) has 
+successfully captured the essential structure and patterns in the data.
+
+
+Steps
+1. Reconstruct data
+2. Obtain the Latent Representations
+3. Analyze the Latent Space
+4. Apply Causal Inference Techniques
+   VAE + Granger Causality
+   verify: DoWhy
+
+
+One-hot encoding is a technique used to convert categorical data 
+(like "Spring", "Summer", "Fall", "Winter") into a numerical format that machine learning models 
+can work with.
+
+
+Why Not Drop the Environment?
+In iVAE, the environment variables (like seasons) help control for external factors that may influence the causal relationship. If you drop the environment, the model would not account for these external influences, and your results could be biased or incomplete.
+In summary:
+Keep 'CO(GT)' as part of the features.
+Use 'T' as the target.
+Retain the environment labels in the training process for iVAE.
+This will allow you to discover whether 'CO(GT)' causes 'T', while also accounting for environmental influences.
+
+
+
+
